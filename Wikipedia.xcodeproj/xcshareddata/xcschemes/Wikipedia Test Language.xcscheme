@@ -79,6 +79,16 @@
                ReferencedContainer = "container:Wikipedia.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "0BEC59C61EA6B39B00BCAD82"
+               BuildableName = "WikipediaUITests.xctest"
+               BlueprintName = "WikipediaUITests"
+               ReferencedContainer = "container:Wikipedia.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
