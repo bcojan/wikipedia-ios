@@ -22,17 +22,17 @@ class WikipediaUITests: XCTestCase {
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
 //        let app = XCUIApplication()
 
-        app.launchArguments = [
-            "-inUITest",
-            "-AppleLanguages",
-            "(fr)",
-            "-AppleLocale",
-            "fr-FR"
-        ]
+//        app.launchArguments = [
+//            "-inUITest",
+//            "-AppleLanguages",
+//            "(de)",
+//            "-AppleLocale",
+//            "de-DE"
+//        ]
 
         print("bastien")
         print(app.launchArguments)
-//        setupSnapshot(app)
+        setupSnapshot(app)
         print("bastien")
         print(app.launchArguments)
         args = app.launchArguments
@@ -70,7 +70,9 @@ class WikipediaUITests: XCTestCase {
         app.navigationBars[dic["explore"]!].buttons["search"].tap()
         
         app.searchFields[dic["search"]!].typeText("steve jobs")
-        
+        //todo replace in dic
+//        app.searchFields["Wikipedia durchsuchen"].typeText("steve jobs")
+
         
         
         let tablesQuery = app.tables
@@ -97,6 +99,10 @@ class WikipediaUITests: XCTestCase {
     
     
     func testExample() {
+//        XCUIApplication().navigationBars["Explore"].buttons["search"].tap()
+        
+   
+        
         
         let dic_fr = [
             "getstarted":"COMMENCER",
@@ -123,11 +129,11 @@ class WikipediaUITests: XCTestCase {
             "continue":"FORTFAHREN",
             "done":"FERTIG",
             "alert":"Allow “Wikipedia” to access your location while you use the app?",
-            "back":"Wikipedia, return to Explore",
+            "back":"Wikipedia, zurück zu Entdecken",
             "explore":"Entdecken",
-            "search":"Wikipedia, zurück zu Entdecken"
+            "search":"Wikipedia durchsuchen"
         ]
-        
+
         let locales = args.filter { (locale) -> Bool in
             return locale.contains("de-DE")
             || locale.contains("en-US")
@@ -136,7 +142,7 @@ class WikipediaUITests: XCTestCase {
         print(args)
         let locale = locales.first
         print(locale)
-
+        
         if let locale = locale {
             switch locale {
             case locale where locale.contains("de-DE"):
