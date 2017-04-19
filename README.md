@@ -70,21 +70,21 @@ Certain development and maintenance tasks will require the installation of speci
 > **Homebrew and many other tools require the Xcode command line tools, which can be installed by running `xcode-select --install` on newer versions of OS X. They can also be installed via Xcode or downloaded from the [Apple Developer downloads page](https://developer.apple.com/downloads) on older versions of OS X.**
 
 ### Clang-Format
- 
+
 `brew install clang-format`
 
 As mentioned in [best practices and coding style](#best-practices-and-coding-style), we use clang-format to lint the project's Objective-C code. Installation via Homebrew is straightforward: `brew install clang-format`. We use the [ClangFormat-Xcode plugin](https://github.com/travisjeffery/ClangFormat-Xcode) to format code on save. After installing the Xcode plugin, select "Format on Save", "Use System ClangFormat" and "File" (to use our .clang-format file) from the Edit > Clang Format menu. You already have clang format if you ran one of the setup scripts above.
 
 ### NPM
+
  
 `brew install npm`
- 
+
 [npm](https://www.npmjs.com/) is a package manager for [nodejs](https://nodejs.org). With it, we install various node modules as Javascript dependencies and development tools (see `www/package.json` for an up-to-date list). Similar to our native dependencies, we have committed certain files to the repository to remove node and npm as build dependencies in an effort to streamline typical application development. Please see [Wikipedia iOS Web Development](docs/web-dev.md) for more information about how to work with the web components in this project.
 
 ### Fastlane
- 
+
 [fastlane](https://fastlane.tools)
 
 ## Continuous Integration
 Continuous integration is run on [Travis-CI](https://travis-ci.org) in response to pull request updates and merges to the **master** branch. See the `verify` lane in `fastlane/Fastfile` and our `.travis.yml` for details.
-
