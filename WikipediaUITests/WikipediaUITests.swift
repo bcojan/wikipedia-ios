@@ -65,6 +65,13 @@ class WikipediaUITests: XCTestCase {
             app.navigationBars[dic["back"]!].buttons[dic["explore"]!].tap()
         }
         
+//        let webView1 = app.webViews.element(boundBy: 0)
+        let hittablePredicate = NSPredicate(format: "isHittable == true")
+//        let steveJobsLoadedExpect = expectation(for: hittablePredicate, evaluatedWith: webView1, handler: nil)
+//        XCTWaiter().wait(for: [steveJobsLoadedExpect], timeout: 10)
+        
+        sleep(4)
+        
         snapshot("Home page")
         
         app.navigationBars[dic["explore"]!].buttons["search"].tap()
@@ -87,9 +94,8 @@ class WikipediaUITests: XCTestCase {
         
         tablesQuery.links.element(boundBy: 0).tap()
         
-        let webView = app.webViews.element(boundBy: 0)
-        let hittablePredicate = NSPredicate(format: "isHittable == true")
-        let steveJobsLoadedExpect = expectation(for: hittablePredicate, evaluatedWith: webView, handler: nil)
+        let webView2 = app.webViews.element(boundBy: 0)
+        let steveJobsLoadedExpect = expectation(for: hittablePredicate, evaluatedWith: webView2, handler: nil)
         XCTWaiter().wait(for: [steveJobsLoadedExpect], timeout: 10)
         
         snapshot("Steve Jobs Page")
