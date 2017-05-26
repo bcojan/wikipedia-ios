@@ -2,14 +2,6 @@ osx_image: xcode8.2
 language: objective-c
 xcode_workspace: Wikipedia.xcodeproj
 xcode_project: Wikipedia
-notifications:
-  webhooks: http://api.sightr.io/processBuild?apiKey=674a92d5-35c8-41b7-864f-18a0aa10aeb3
 before_install:
 - gem install fastlane --no-ri --no-doc --no-document
 script: fastlane snapshot --verbose --derived_data_path derivedData --skip_open_summary
-addons:
-  artifacts:
-    s3_region: "eu-west-1"
-    paths:
-      - ./screenshots
-    debug: true
