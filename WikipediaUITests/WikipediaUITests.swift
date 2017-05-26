@@ -9,33 +9,14 @@
 import XCTest
 
 class WikipediaUITests: XCTestCase {
-    var args: [String] = []
     let app = XCUIApplication()
     
     override func setUp() {
         super.setUp()
         
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-//        let app = XCUIApplication()
-
-//        app.launchArguments = [
-//            "-inUITest",
-//            "-AppleLanguages",
-//            "(de)",
-//            "-AppleLocale",
-//            "de-DE"
-//        ]
-
-        print("bastien")
-        print(app.launchArguments)
         setupSnapshot(app)
-        print("bastien")
-        print(app.launchArguments)
-        args = app.launchArguments
         
         app.launch()
         
@@ -49,122 +30,37 @@ class WikipediaUITests: XCTestCase {
     }
     
     
-    func run (dic: [String:String]) {
-
-        
-        if app.buttons[dic["getstarted"]!].exists {
-            app.buttons[dic["getstarted"]!].tap()
-            app.buttons[dic["continue"]!].tap()
-            app.buttons[dic["done"]!].tap()
-        }
-        if app.alerts[dic["alert"]!].exists {
-            app.alerts[dic["alert"]!].buttons["Allow"].tap()
-        }
-        
-        if app.navigationBars[dic["back"]!].exists {
-            app.navigationBars[dic["back"]!].buttons[dic["explore"]!].tap()
-        }
-        
-//        let webView1 = app.webViews.element(boundBy: 0)
-        let hittablePredicate = NSPredicate(format: "isHittable == true")
-//        let steveJobsLoadedExpect = expectation(for: hittablePredicate, evaluatedWith: webView1, handler: nil)
-//        XCTWaiter().wait(for: [steveJobsLoadedExpect], timeout: 10)
-        
-        sleep(4)
-        
+    func test_smoketest () {
+        // snapshot the home page
         snapshot("Home page")
         
-        app.navigationBars[dic["explore"]!].buttons["search"].tap()
+        //search for steve jobs page
+        app.navigationBars["Explore"].buttons["search"].tap()
+        app.searchFields["Search Wikipedia"].typeText("steve jobs")
         
-        app.searchFields[dic["search"]!].typeText("steve jobs")
-        //todo replace in dic
-//        app.searchFields["Wikipedia durchsuchen"].typeText("steve jobs")
-
-        
-        
-        let tablesQuery = app.tables
-        
-        let steveJobsLink = tablesQuery.links
-        let countPredicate = NSPredicate(format: "count>10 ")
-        
-        let searchResultExp = expectation(for: countPredicate, evaluatedWith: steveJobsLink, handler: nil)
-        XCTWaiter().wait(for: [searchResultExp], timeout: 5)
-        
+        // snapshot search page
         snapshot("Search")
         
-        tablesQuery.links.element(boundBy: 0).tap()
+        // wait for the results to load
+        let existsPredicate = NSPredicate(format: "exists == true")
+        let steveJobsLink = app.tables.links.element(boundBy: 0)
+        expectation(for: existsPredicate, evaluatedWith: steveJobsLink, handler: nil)
+        waitForExpectations(timeout: 5, handler: nil)
         
-        let webView2 = app.webViews.element(boundBy: 0)
-        let steveJobsLoadedExpect = expectation(for: hittablePredicate, evaluatedWith: webView2, handler: nil)
-        XCTWaiter().wait(for: [steveJobsLoadedExpect], timeout: 10)
+        // tap on the first element
+        steveJobsLink.tap()
         
+        //screenshot steve jobs page
         snapshot("Steve Jobs Page")
+        
+        
+        let fontSizeButton = app.toolbars.buttons["font size"]
+        fontSizeButton.tap()
+        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 1).children(matching: .other).element(boundBy: 2).children(matching: .other).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.swipeLeft()
+        fontSizeButton.tap()
+        
+        //screenshot steve jobs page
+        snapshot("Steve Jobs Text size")
 
     }
-    
-    
-    
-    func testExample() {
-//        XCUIApplication().navigationBars["Explore"].buttons["search"].tap()
-        
-   
-        
-        
-        let dic_fr = [
-            "getstarted":"COMMENCER",
-            "continue":"CONTINUER",
-            "done":"TERMINÉ",
-            "alert":"Allow “Wikipedia” to access your location while you use the app?",
-            "back":"Wikipédia, revenir à Explorer",
-            "explore":"Explorer",
-            "search":"Rechercher dans Wikipédia"
-        ]
-        
-        let dic_en = [
-            "getstarted":"GET STARTED",
-            "continue":"CONTINUE",
-            "done":"DONE",
-            "alert":"Allow “Wikipedia” to access your location while you use the app?",
-            "back":"Wikipedia, return to Explore",
-            "explore":"Explore",
-            "search":"Search Wikipedia"
-        ]
-        
-        let dic_de = [
-            "getstarted":"ANFANGEN",
-            "continue":"FORTFAHREN",
-            "done":"FERTIG",
-            "alert":"Allow “Wikipedia” to access your location while you use the app?",
-            "back":"Wikipedia, zurück zu Entdecken",
-            "explore":"Entdecken",
-            "search":"Wikipedia durchsuchen"
-        ]
-
-        let locales = args.filter { (locale) -> Bool in
-            return locale.contains("de-DE")
-            || locale.contains("en-US")
-            || locale.contains("fr-FR")
-        }
-        print(args)
-        let locale = locales.first
-        print(locale)
-        
-        if let locale = locale {
-            switch locale {
-            case locale where locale.contains("de-DE"):
-                run(dic:dic_de)
-                break;
-            case locale where locale.contains("fr-FR"):
-                run(dic:dic_fr)
-                break;
-            case locale where locale.contains("en-US"):
-                run(dic:dic_en)
-                break;
-            default:
-                break
-            }
-            
-        }
-    }
-    
 }

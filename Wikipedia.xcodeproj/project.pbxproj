@@ -10,7 +10,6 @@
 		041EFC371996A1F800B2CB28 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041EFC361996A1F800B2CB28 /* MapKit.framework */; };
 		0493C2D419526A0100EBB973 /* WikiFont-Glyphs.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0493C2D319526A0100EBB973 /* WikiFont-Glyphs.ttf */; };
 		08A3C7B61C5FCC8500682DC0 /* WMFArticlePreviewCellVisualTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A3C7B51C5FCC8500682DC0 /* WMFArticlePreviewCellVisualTests.m */; };
-		0BEC59CA1EA6B39C00BCAD82 /* WikipediaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEC59C91EA6B39C00BCAD82 /* WikipediaUITests.swift */; };
 		0BEC59DB1EA6B3D100BCAD82 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEC59DA1EA6B3D100BCAD82 /* SnapshotHelper.swift */; };
 		0E0361741C4485FA00FD9642 /* WMFSelfSizingArticleListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E0361731C4485FA00FD9642 /* WMFSelfSizingArticleListTableViewController.m */; };
 		0E03617A1C44905400FD9642 /* WMFMorePageListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E0361791C44905400FD9642 /* WMFMorePageListViewController.m */; };
@@ -8220,7 +8219,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0BEC59CA1EA6B39C00BCAD82 /* WikipediaUITests.swift in Sources */,
 				0BEC59DB1EA6B3D100BCAD82 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -13731,6 +13729,7 @@
 				0BEC59D81EA6B39C00BCAD82 /* Alpha */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0E8380761D64989F0076EDE4 /* Build configuration list for PBXNativeTarget "ContinueReadingWidget" */ = {
 			isa = XCConfigurationList;
