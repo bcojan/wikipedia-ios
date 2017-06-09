@@ -77,7 +77,7 @@ As mentioned in [best practices and coding style](#best-practices-and-coding-sty
 
 ### NPM
 
- 
+
 `brew install npm`
 
 [npm](https://www.npmjs.com/) is a package manager for [nodejs](https://nodejs.org). With it, we install various node modules as Javascript dependencies and development tools (see `www/package.json` for an up-to-date list). Similar to our native dependencies, we have committed certain files to the repository to remove node and npm as build dependencies in an effort to streamline typical application development. Please see [Wikipedia iOS Web Development](docs/web-dev.md) for more information about how to work with the web components in this project.
@@ -88,3 +88,6 @@ As mentioned in [best practices and coding style](#best-practices-and-coding-sty
 
 ## Continuous Integration
 Continuous integration is run on [Travis-CI](https://travis-ci.org) in response to pull request updates and merges to the **master** branch. See the `verify` lane in `fastlane/Fastfile` and our `.travis.yml` for details.
+
+
+## Sightr.io
