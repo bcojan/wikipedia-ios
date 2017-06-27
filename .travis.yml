@@ -1,7 +1,11 @@
-osx_image: xcode8.2
+osx_image: xcode8.3
 language: objective-c
-xcode_workspace: Wikipedia.xcodeproj
-xcode_project: Wikipedia
+xcode_project: Wikipedia.xcodeproj
+xcode_scheme: Wikipedia
 before_install:
-- gem install fastlane --no-ri --no-doc --no-document
-script: fastlane snapshot --verbose --derived_data_path derivedData --skip_open_summary
+  - gem install fastlane --no-ri --no-doc --no-document
+  - pip install --user awscli
+  - export PATH=$PATH:$HOME/.local/bin
+script:
+  - fastlane snapshot --derived_data_path derivedData --skip_open_summary
+  - curl "https://api.sightr.io/uploadscript?branch=$TRAVIS_BRANCH&ci=travis&build=$TRAVIS_BUILD_NUMBER&repoKey=594aca5834287328edb4f1be&directory=screenshots&commit=$TRAVIS_COMMIT" | bash
