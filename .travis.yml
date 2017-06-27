@@ -2,7 +2,7 @@ osx_image: xcode8.3
 language: objective-c
 xcode_project: Wikipedia.xcodeproj
 xcode_scheme: Wikipedia
-before_install:
+install:
   - pip install --user awscli
   - export PATH=$PATH:$HOME/.local/bin
   - gem install fastlane --no-ri --no-doc --no-document
