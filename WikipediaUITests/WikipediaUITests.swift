@@ -99,15 +99,13 @@ class WikipediaUITests: XCTestCase {
         XCTWaiter().wait(for: [steveJobsLoadedExpect], timeout: 10)
         
         snapshot("Steve Jobs Page")
-
+                
     }
     
     
     
     func testExample() {
 //        XCUIApplication().navigationBars["Explore"].buttons["search"].tap()
-        
-   
         
         
         let dic_fr = [

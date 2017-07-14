@@ -2097,6 +2097,7 @@
 		0BEC59C91EA6B39C00BCAD82 /* WikipediaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikipediaUITests.swift; sourceTree = "<group>"; };
 		0BEC59CB1EA6B39C00BCAD82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0BEC59DA1EA6B3D100BCAD82 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		0BF029041F17B0A5003D00FD /* smoketest-sightr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "smoketest-sightr.swift"; sourceTree = "<group>"; };
 		0E0361721C4485FA00FD9642 /* WMFSelfSizingArticleListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WMFSelfSizingArticleListTableViewController.h; path = Wikipedia/Code/WMFSelfSizingArticleListTableViewController.h; sourceTree = SOURCE_ROOT; };
 		0E0361731C4485FA00FD9642 /* WMFSelfSizingArticleListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WMFSelfSizingArticleListTableViewController.m; path = Wikipedia/Code/WMFSelfSizingArticleListTableViewController.m; sourceTree = SOURCE_ROOT; };
 		0E0361781C44905400FD9642 /* WMFMorePageListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WMFMorePageListViewController.h; path = Wikipedia/Code/WMFMorePageListViewController.h; sourceTree = SOURCE_ROOT; };
@@ -3984,6 +3985,7 @@
 		0BEC59C81EA6B39B00BCAD82 /* WikipediaUITests */ = {
 			isa = PBXGroup;
 			children = (
+				0BF029041F17B0A5003D00FD /* smoketest-sightr.swift */,
 				0BEC59DA1EA6B3D100BCAD82 /* SnapshotHelper.swift */,
 				0BEC59C91EA6B39C00BCAD82 /* WikipediaUITests.swift */,
 				0BEC59CB1EA6B39C00BCAD82 /* Info.plist */,
@@ -13731,6 +13733,7 @@
 				0BEC59D81EA6B39C00BCAD82 /* Alpha */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0E8380761D64989F0076EDE4 /* Build configuration list for PBXNativeTarget "ContinueReadingWidget" */ = {
 			isa = XCConfigurationList;
